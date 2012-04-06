@@ -87,15 +87,11 @@
 /* menu */
 
 	div#menu {
-		height: auto;
-		width: auto;
-		font-size: 14px;
-		padding-left: 20px;
-	}
-	
-	div#menu ul {
 		height: 35px;
 		width: 940px;
+		font-size: 14px;
+		padding-left: 20px;
+		background-color: #085c7f;
 	}
 	
 	div#menu ul li {
