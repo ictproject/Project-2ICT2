@@ -20,12 +20,19 @@
   		margin: 0 auto;
   		position: relative;
 	}
+	
+/* background */
+
+	div#background {
+		background: #000 url(../images/bg_body.png) repeat-x 0 0;
+		background-position: 0 130px;
+	}
 
 /* header */
 
 	div#header {
   		height: 130px;
-  		background: #000000 url(../images/bg_header.png) no-repeat right bottom;
+  		background: #000 url(../images/bg_header.png) repeat-y 0 0;
 	}
 
 /* logo */
@@ -80,11 +87,15 @@
 /* menu */
 
 	div#menu {
-		width: 940px;
-		height: 35px;
-		background-color: #085c7f;
+		height: auto;
+		width: auto;
 		font-size: 14px;
 		padding-left: 20px;
+	}
+	
+	div#menu ul {
+		height: 35px;
+		width: 940px;
 	}
 	
 	div#menu ul li {
@@ -124,7 +135,8 @@
 		width: 910px;
 		height: 550px;
 		font-size: 12px;
-		margin: 20px 30px;
+		padding: 20px 30px;
+		background: #fff;
 	}
 
 	div#content h2 {
