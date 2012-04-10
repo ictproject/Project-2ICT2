@@ -1,0 +1,126 @@
+	/* content */
+
+	div#content {
+		width: 910px;
+		height: 485px;
+		font-size: 12px;
+		padding: 20px 30px;
+		background: #fff;
+		margin-bottom: 50px;
+	}
+
+	div#content h3 {
+		font-family: verdana;		
+		font-size: 30px;
+		font-weight: normal;
+		margin-bottom: 20px;
+	}
+	
+	/* Welcome */
+	
+	div#content p#welcome {
+		width: 380px;
+		margin-right: 30px;
+		float: left;
+		line-height: 20px;
+	}
+	
+	div#content video {
+		background-color: black;
+	}
+
+	/* My Presentations */
+	
+	div#content p#add {
+		width: 117px;
+		height: 22px;
+		line-height: 22px;
+		text-align: center;
+		background-color: #66cc00;
+		border-top-right-radius: 4px;
+		border-top-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+		float: right;
+	}
+	
+	div#content p#add a {
+		color: #060;
+		font-size: 11px;
+		font-weight: bold;
+		padding: 4px 9px 3px 10px; 
+		border: 1px solid #4e4f50;
+  		color: #050;
+  		border-top-right-radius: 4px;
+		border-top-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+	}
+	
+	div#content p#add a:hover {
+		padding: 4px 8px 3px 9px; 
+		border: 2px solid #4e4f50;
+  		color: #050;
+	}
+	
+	div#content div#presentations {
+		clear: both;
+		float: left;
+		width: 908px;
+		height: 395px;
+		background-color: #e4e4e4;
+		border: 1px solid #ccc;
+		margin-top: 10px;
+		padding-top: 6px;
+	}
+	
+	div#content div#presentations div.presentation {
+		width: 160px;
+		height: 110px;
+		background-color: white;
+		float: left;
+		margin: 10px 0px 6px 16px;
+		border: 1px solid #999;
+		position: relative;
+	}
+	
+	div#content div#presentations div.presentation h4 {
+		font-size: 14px;
+		font-weight: normal;
+		color: #404040;
+		width: 150px;
+		text-align: center;
+		margin: 5px;
+		margin-top: 15px;
+	}
+	
+	div#content div#presentations div.presentation p#buttons{
+		position: absolute;
+		bottom: 10px;
+		right: 5px;
+	}
+	
+	div#content div#presentations div.presentation p#buttons a {
+		float: right;
+		margin-right: 10px;
+	}
+	
+	div#content div#presentations div.presentation p#buttons a.edit {
+		width: 14px;
+		height: 15px;
+		background: url(../images/pencil.png) no-repeat 0 0;
+      text-indent: -9999px;	
+      display: block;
+      overflow: hidden;
+	}
+	
+	div#content div#presentations div.presentation p#buttons a.settings {
+		width: 16px;
+		height: 16px;
+		background: url(../images/settings.png) no-repeat 0 0;
+      text-indent: -9999px;
+      display: block;
+      overflow: hidden;	
+	}
+			
+	
