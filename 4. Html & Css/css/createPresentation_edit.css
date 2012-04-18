@@ -1,9 +1,12 @@
-
+	div#content {
+		height: 675px;
+	}
 	h4 {
 		float: left;
 		font-weight: normal;
 		font-size: 15px;
-		color: #999;		
+		color: #999;
+		clear: both;		
 	}
 
 /* Add buttons */	
@@ -65,12 +68,16 @@
 		margin-bottom: 10px;
 	}
 	
+	div#content div#templates div.template:hover {
+		border: 1px solid #000;
+	}
+	
 	div#content div#templates div#temp1 p.title {
 		margin-top: 30px;
 	}
 	
 	div#content div#templates div.selected {
-		border: 2px solid #000;
+		border: 1px solid #000;
 	}
 	
 	div#content div#templates div.template p.title {
@@ -96,3 +103,65 @@
 	div#content div#templates div.template p.image {
 		text-align: center;
 	}
+	
+/* Big Slide */
+	div#bigSlide {
+		width: 668px;
+		height: 418px;
+		border: 1px solid #999;
+		background-color: #e4e4e4;
+		float: right;
+		margin-top: 15px;
+		text-align: center;
+	}
+	
+	div#bigSlide p#title {
+		font-size: 60px;
+		color: #036;
+		margin-top: 100px;
+	}
+	
+	div#bigSlide p#subtitle {
+		font-size: 28px;
+		color: #036;
+		margin-top: 30px;
+	}
+	
+/* slides */
+	div#slides {
+		width: 908px;
+		height: 140px;
+		border: 1px solid #999;
+		background-color: #e4e4e4;
+		float: left;
+		margin-top: 10px;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+	
+	div#slides div#scroll {
+		width: 200%;
+	}
+	
+	div#slides div.slide {
+		width: 160px;
+		height: 110px;
+		background-color: white;
+		float: left;
+		border: 1px solid #999;
+		margin-top: 10px;
+		margin-left: 12px;
+	}
+	
+	div#slides div.slide:hover {
+		background-color: #ff9;
+	}
+	
+	div#slides div.slide p.title {
+		text-align: center;
+		font-size: 14px;
+		color: #404040;
+		margin-top: 15px;
+	}
+	
+	
