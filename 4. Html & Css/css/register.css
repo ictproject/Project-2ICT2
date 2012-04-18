@@ -66,6 +66,7 @@
 	
 	div#content form dl {
 		clear: both;
+		margin-left: 15px;
 	}
 	
 	div#content form dl dt {
