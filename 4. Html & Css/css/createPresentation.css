@@ -2,11 +2,11 @@
 
 	div#content {
 		width: 910px;
-		height: 485px;
+		height: 585px;
 		font-size: 12px;
 		padding: 20px 30px;
 		background: #fff;
-		margin-bottom: 50px;
+		border-top-left-radius: 4px;
 	}
 
 	div#content h3 {
