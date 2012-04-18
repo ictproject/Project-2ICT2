@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=iso-8859-15" />
   <link rel="stylesheet" type="text/css" href="css/library.css" />
   <link rel="stylesheet" type="text/css" href="css/styles.css" />
-  <link rel="stylesheet" type="text/css" href="css/createPresentation.css" />
+  <link rel="stylesheet" type="text/css" href="css/createPresentation_edit.css" />
 </head>
 <body>
   <div id="background">
@@ -29,24 +29,31 @@
 		<div id="content">
 			<h3>Create Presentation</h3>
 
-			<p id="info">Provide the information for your presentation here. You can still change it afterwards.</p>
-			<form action="#" method="post">
-				<dl>
-					<dt>
-						<input type="submit" id="btnSubmit" name="btnSubmit" value="Next" />
-					</dt>
-					<dt><label for="name">Name:</label></dt>
-					<dd>
-						<input type="text" id="name" size="20" name="name" value=""/>
-					</dd>
-					<dt><label for="comment">Comment:</label></dt>
-					<dd>
-						<textarea name="comment" id="comment" rows="4" cols="54"></textarea>
-					</dd>
-					<dt id="options">Sharing Options</dt>
-					<dt id="checkPublic"><label for="public"><input type="checkbox" id="public" name="public" value="public"/>Public Presentation</label></dt>
-				</dl>
-    		</form>
+			<h4>Templates</h4>
+
+			<p class="add"><a href="#">Add Video</a></p>
+			<p class="add"><a href="#">Add Image</a></p>
+			<p class="add"><a href="#">Add Text</a></p>
+
+			<div id="templates">
+				<h5>Title + Subtitle</h5>
+				<div class="template selected" id="temp1">
+					<p class="title">Title</p>
+					<p class="subtitle">Subtitle</p>
+				</div>
+
+				<h5>Title + Text</h5>
+				<div class="template">
+					<p class="title">Title</p>
+					<p class="text">Sample text</p>
+				</div>
+
+				<h5>Title + Image</h5>
+				<div class="template">
+					<p class="title">Title</p>
+					<p class="image"><img src="./images/templateImg.jpg" width="121" height="75" alt="img"/></p>
+				</div>
+			</div>
 		</div>
 	  </div>
 	  <div id="footer">
