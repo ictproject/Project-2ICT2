@@ -1,11 +1,40 @@
-/* create */
 	
-	div#content p#info {
-		float: left;
-		font-size: 13px;
+	div#content form fieldset.fs legend {
+		font-size: 18px;
 		color: #999;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
+	}
+	
+	div#content form #fieldset1 {
+		float: left;
 		clear: both;
+		width: 465px;
+	}
+	
+	div#content form #fieldset2 {
+		float: left;
+		width: 445px;
+	}
+	
+	div#content form #fieldset3 {
+		float: left;
+		clear: both;
+		width: 645px;
+		margin-top: 30px;
+		position: relative;
+	}
+	
+	div#content form #fieldset3 dt {
+		margin-bottom: 10px;
+	}
+	
+	div#content form #fieldset3 dd#imgBox {
+		float: left;
+		border: 1px solid #999;
+		width: 124px;
+		height: 151px;
+		text-align: center;
+		margin-right: 20px;
 	}
 	
 	div#content form {
@@ -43,24 +72,13 @@
 	 	margin-top: 10px;
 	 	margin-bottom: 5px;
 	}
-  
-	div#content form dl dt#options {
-		color: #666;
-		font-size: 17px;
-	}	
 	
-  	div#content form dl dt#checkPublic input{
-  		display: block;
-  		float: left;
-		height: 12px;
+	div#content form dl input {
+		border: 1px solid #ccc;
 	}
 	
-	div#content form dl dt#checkPublic label {
-		display: block;
-		font-size: 12px;
-		line-height: 20px;
+	div#content form dl dd.required input {
+		border-color: red;
 	}
-  
-	
-	
+
 	

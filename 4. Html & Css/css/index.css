@@ -5,10 +5,12 @@
 		margin-right: 30px;
 		float: left;
 		line-height: 20px;
+		clear: both;
 	}
 	
 	div#content video {
 		background-color: black;
+		float: right;
 	}
 
 /* My Presentations */
