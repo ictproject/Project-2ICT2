@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=iso-8859-15" />
   <link rel="stylesheet" type="text/css" href="css/library.css" />
   <link rel="stylesheet" type="text/css" href="css/styles.css" />
-  <link rel="stylesheet" type="text/css" href="css/createPresentation.css" />
+  <link rel="stylesheet" type="text/css" href="css/register.css" />
 </head>
 <body>
   <div id="background">
@@ -20,32 +20,31 @@
 		<div id="menu">
 		  <ul>
 			<li><a href="myPresentations.html">My Presentations</a></li>
-			<li class="selected" id="middle"><a href="createPresentation.html">Create Presentation</a></li>
+			<li id="middle"><a href="createPresentation.html">Create Presentation</a></li>
 			<li><a href="#">About Open Presentations</a></li>
-			<li id="login"><a href="profile.html">Derp</a></li>
+			<li class="selected" id="login"><a href="login.html">Login</a></li>
 		  </ul>
 		</div>
 
 		<div id="content">
-			<h3>Create Presentation</h3>
+			<h3>Login</h3>
 
-			<p id="info">Provide the information for your presentation here. You can still change it afterwards.</p>
 			<form action="#" method="post">
-				<dl>
-					<dt>
-						<input type="submit" id="btnSubmit" name="btnSubmit" value="Next" />
-					</dt>
-					<dt><label for="name">Name:</label></dt>
-					<dd>
-						<input type="text" id="name" size="20" name="name" value=""/>
-					</dd>
-					<dt><label for="comment">Comment:</label></dt>
-					<dd>
-						<textarea name="comment" id="comment" rows="4" cols="54"></textarea>
-					</dd>
-					<dt id="options">Sharing Options</dt>
-					<dt id="checkPublic"><label for="public"><input type="checkbox" id="public" name="public" value="public"/>Public Presentation</label></dt>
-				</dl>
+				<fieldset class="fs" id="fieldset1">
+					<dl>
+						<dt><label for="username">Username</label></dt>
+						<dd class="required">
+							<input type="text" id="username" size="20" name="username" value=""/>
+						</dd>
+						<dt><label for="password">Password</label></dt>
+						<dd class="required">
+							<input type="password" id="password" size="20" name="password" value=""/>
+						</dd>
+						<dt>
+							<input type="submit" id="btnLogin" name="btnLogin" value="Login" />
+						</dt>
+					</dl>
+				</fieldset>
     		</form>
 		</div>
 	  </div>

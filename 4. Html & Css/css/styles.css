@@ -19,6 +19,7 @@
   		width: 960px;
   		margin: 0 auto;
   		position: relative;
+  		
 	}
 	
 /* background */
@@ -67,7 +68,7 @@
 	div#header p#register {
 		width: 130px;
 		height: 32px;
-		line-height: 28px;
+		line-height: 32px;
 		text-align: center;
 		background-image: url(../images/btn_register.png);
 		border-top-right-radius: 4px;
@@ -113,21 +114,25 @@
 	div#menu ul li {
 		float:left;
 		margin-top: 10px;
+		
 	}
 	
 	div#menu ul li a {
-		padding: 10px;
+		margin: 10px;
+	
 	}
 	
 	div#menu ul li a:hover {
-		font-weight: bold;
+		border-bottom: 1px solid #fff;
+		padding-bottom: 2px; 	
+		
 	}
 	
 	div#menu ul li.selected {
 		font-weight: bold;
 	}
 	
-	div#menu ul li.middle {
+	div#menu ul li#middle {
 		border-left: 1px solid #054b68;
 		border-right: 1px solid #054b68;
 		margin-top: 3px;
@@ -145,11 +150,10 @@
 		border-top-left-radius: 4px;
 	}
 	
-	div#menu ul li#login a{
+	div#menu ul li#login a{	
 		color: black;
 		padding-right: 25px;
-		padding-left: 27px;
-		padding-top: 8px;
+		padding-left: 17px;
 		display: block;
 	}
 	
@@ -179,6 +183,8 @@
 		width: 100%;
 		background-color: black;
 		padding: 15px 0px 5px 0px;
+		position:absolute;
+   	bottom:0;
 	}
 	div#footer p {
 		text-align: center;
