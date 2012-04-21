@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Deck Skeleton</title>
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Replace path with correct path to deck.core.css. -->
+	<link rel="stylesheet" href="deck.core.css" type="text/css">
+	
+	<!-- Any other extension CSS files go here. -->
+	
+	<!-- Replace path with correct path to Modernizr file. -->
+	<script src="modernizr.custom.js"></script>
+</head>
+<body class="deck-container" style="border: 1px solid black; width: 300px; height: 100px;" >
+
+<!-- Create any number of elements with class slide within the container -->
+<section class="slide">
+	<h1>TEST</h1>
+</section>
+
+<section class="slide">
+	<h1>test 2</h1>
+</section>
+
+<section class="slide">
+	<h1>TEST 3</h1>
+</section>
+	
+<!-- Other extension HTML snippets go here, at the bottom of the deck container. -->
+
+<!-- Update these paths to point to the correct files. -->
+<script src="jquery.js"></script>
+<script src="deck.core.js"></script>
+
+<!-- Add any other extension JS files here -->
+
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
