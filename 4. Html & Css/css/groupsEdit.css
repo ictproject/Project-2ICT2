@@ -93,16 +93,46 @@
 		margin-top: 
 	}
 	
-/* Groups */
-	div#groups {
-		float: left;
-		width: 210px;
-		margin-top: 30px;
+/*	Content 	*/
+	div#content h3 {
+		width:100%;
 	}
+	
 
+/* Groups */
+	div#groups {		
+		float:left;
+		width: 290px;
+		
+	}
+	div#content #groups h4 {
+		width: 290px;
+		height: 40px;
+		position: relative;
+	}
+	div#content #groups input[type="text"] {
+		margin-bottom: 10px;
+	}
 	div#groups p.group {
+	position: relative;
+		float: inherit;
+		width:290px;
 		text-indent: 15px;
 		margin-left: 10px;
-		margin-bottom: 10px; 
+		padding-bottom:10px;
 		background: url(../images/listStyle.png) no-repeat 0 0;
 	}
+
+	
+	/**div#groups p.group a.delete {
+		position: absolute;
+		float:right;
+		background: url(../images/delete.png) no-repeat 0 0;
+		display: block;
+		text-indent: 9999px;
+		overflow: hidden;
+		width: 22px;
+		height: 20px;
+		margin-left: 5px;
+	}*/
+	
