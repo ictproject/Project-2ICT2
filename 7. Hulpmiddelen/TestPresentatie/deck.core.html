@@ -9,6 +9,9 @@
 	
 	<link rel="stylesheet" href="css/web-2.0.css" type="text/css"> 
 	<link rel="stylesheet" href="css/horizontal-slide.css" type="text/css"> 
+	<link rel="stylesheet" href="css/deck.goto.css" type="text/css"> 
+	<link rel="stylesheet" href="css/deck.menu.css" type="text/css"> 
+	<link rel="stylesheet" href="css/deck.hash.css" type="text/css"> 
 	
 	<!-- Any other extension CSS files go here. -->
 	
@@ -18,24 +21,46 @@
 <body class="deck-container">
 
 <!-- Create any number of elements with class slide within the container -->
-<section class="slide">
+<section class="slide" id="slide_start">
 	<h1>Test Presentation</h1>
 	<h2>By Thomas Vandermarliere</h2>
 </section>
 
-<section class="slide">
+<section class="slide" id="slide_intro">
 	<h1>Intro</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in tempus lorem. Maecenas ultrices vehicula varius. Curabitur suscipit eros sed sapien elementum ultrices. Praesent vulputate leo sit amet mauris scelerisque quis consequat turpis pulvinar. Donec eu leo vel orci interdum posuere. Nam felis lectus, rutrum eu bibendum at, mollis id mi. Vivamus felis sapien, mollis at auctor ac, ullamcorper et ligula. Pellentesque tortor enim, porta at cursus quis, hendrerit a eros. Proin laoreet nisl et arcu pulvinar interdum. Mauris at sollicitudin magna.</p>
+</section>
+
+<section class="slide" id="slide_c#">
+	<h1>C#</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in tempus lorem. Maecenas ultrices vehicula varius. Curabitur suscipit eros sed sapien elementum ultrices. Praesent vulputate leo sit amet mauris scelerisque quis consequat turpis pulvinar. Donec eu leo vel orci interdum posuere. Nam felis lectus, rutrum eu bibendum at, mollis id mi. Vivamus felis sapien, mollis at auctor ac, ullamcorper et ligula. Pellentesque tortor enim, porta at cursus quis, hendrerit a eros. Proin laoreet nisl et arcu pulvinar interdum. Mauris at sollicitudin magna.</p>
+</section>
+
+<section class="slide" id="slide_linux">
+	<h1>Linux</h1>
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in tempus lorem. Maecenas ultrices vehicula varius. Curabitur suscipit eros sed sapien elementum ultrices. Praesent vulputate leo sit amet mauris scelerisque quis consequat turpis pulvinar. Donec eu leo vel orci interdum posuere. Nam felis lectus, rutrum eu bibendum at, mollis id mi. Vivamus felis sapien, mollis at auctor ac, ullamcorper et ligula. Pellentesque tortor enim, porta at cursus quis, hendrerit a eros. Proin laoreet nisl et arcu pulvinar interdum. Mauris at sollicitudin magna.</p>
 </section>
 	
 <!-- Other extension HTML snippets go here, at the bottom of the deck container. -->
+<!-- Place the following snippet at the bottom of the deck container. -->
+<!-- goto extenstion -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+<!-- hash extenstion -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
 
 <!-- Update these paths to point to the correct files. -->
 <script src="js/jquery-1.7.min.js"></script>
 <script src="js/deck.core.js"></script>
 
 <!-- Add any other extension JS files here -->
-
+<script src="js/deck.goto.js"></script>
+<script src="js/deck.menu.js"></script>
+<script src="js/deck.hash.js"></script>
 
 <!-- Initialize the deck. You can put this in an external file if desired. -->
 <script>
