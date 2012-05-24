@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 /* General information */
 	h4 {
@@ -236,3 +237,113 @@
 		margin-left: 10px;
 	}
 	
+=======
+/* Presentations */
+	div#presentations {
+		width: 908px;
+		height: 140px;
+		border: 1px solid #999;
+		background-color: #e4e4e4;
+		float: left;
+		margin-top: 10px;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+	
+	div#presentations div#scroll {
+		width: 200%;
+	}
+	
+	div#presentations div.presentation {
+		width: 160px;
+		height: 110px;
+		background-color: white;
+		float: left;
+		border: 1px solid #999;
+		margin-top: 10px;
+		margin-left: 12px;
+	}
+	
+	div#presentations div.presentation:hover {
+		background-color: #ff9;
+	}
+	
+	div#presentations div.presentation p.title {
+		text-align: center;
+		font-size: 14px;
+		color: #404040;
+		margin-top: 15px;
+	}
+	
+/* General information */
+	h4 {
+		float: left;
+		font-weight: normal;
+		font-size: 15px;
+		color: #999;
+		clear: both;		
+	}
+	
+	div#general {
+		width: 370px;
+		float: left;
+		margin-top: 30px;
+	}
+	
+	p.edit {
+		height: 20px;
+		margin-bottom: 10px;
+	}
+	
+	p.edit a {
+		float: left;
+		background: url(../images/edit.png) no-repeat 0 0;
+		display: block;
+		text-indent: 9999px;
+		overflow: hidden;
+		width: 22px;
+		height: 20px;
+		margin-left: 5px;
+	}
+	
+	div#general p span {
+		width: 100px;
+		float: left;
+		clear: both;
+		color: #999;
+	}
+	
+	div#general p {
+		margin-bottom: 10px;
+	}
+	
+/* Picture */
+	div#picture {
+		float: left;
+		width: 210px;
+		margin-top: 30px;
+	}
+
+	div#picture div#imgBox {
+		float: left;
+		border: 1px solid #999;
+		width: 124px;
+		height: 151px;
+		text-align: center;
+		margin-top: 
+	}
+	
+/* Groups */
+	div#groups {
+		float: left;
+		width: 210px;
+		margin-top: 30px;
+	}
+
+	div#groups p.group {
+		text-indent: 15px;
+		margin-left: 10px;
+		margin-bottom: 10px; 
+		background: url(../images/listStyle.png) no-repeat 0 0;
+	}
+>>>>>>> 27865da49300e8a2c17f79e69a95109ea16aaeaa
