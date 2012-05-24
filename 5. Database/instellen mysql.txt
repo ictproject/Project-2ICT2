@@ -1,0 +1,17 @@
+Om het gemakkelijk te houden voor iedereen:
+
+Als iedereen een mysql gebruiker aanmaakt op zijn pc met zelfde naam
+en rechten op de database moet je het config.php bestand niet steeds aanpassen.
+
+Command voor gebruiker aan te maken:
+
+CREATE USER 'project'@'localhost' IDENTIFIED BY 'pass';
+
+Command voor rechten:
+
+USE openpresentations;
+GRANT ALL PRIVILEGES ON *.* TO 'project'@'localhost';
+
+
+mysql -u project -p
+pass

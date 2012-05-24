@@ -26,14 +26,20 @@
 
 	div#background {
 		background: #000 url(../images/bg_body.png) repeat-x 0 0;
-		background-position: 0 130px;
 	}
 
 /* header */
 
-	div#header {
+	div#headerWrapper {
   		height: 130px;
-  		background: #000 url(../images/bg_header.png) repeat-y 0 0;
+  		background: black;  		
+	}
+	
+	div#header {
+		width: 980px;
+		height: 130px;
+		margin: 0 auto;
+		background: #000 url(../images/bg_header.png) repeat-y 0 0;
 	}
 
 /* logo */
@@ -46,9 +52,8 @@
 		overflow: hidden;
 		text-indent: -9999px;	
 		float: left;
-		position: absolute;
-		left: 30px;
-		top: 20px;
+		margin-left: 20px;
+		margin-top: 20px;
 	}
 	
 	h2 {
@@ -58,9 +63,9 @@
 		font-style: italic;
 		font-weight: normal;
 		float: left;
-		position: absolute;
-		left: 40px;
-		top: 95px;
+		clear: both;
+		margin-left: 30px;
+		margin-top: 10px;
 	}
 	
 /* register */
@@ -76,9 +81,8 @@
 		border-bottom-right-radius: 4px;
 		border-bottom-left-radius: 4px;
 		float: right;
-		position: absolute;
-		right: 20px;
-		top: 40px;
+		margin-top: 50px;
+		
 	}
 	
   div#header p#register a {
@@ -142,7 +146,6 @@
 	
 	div#menu ul li#login {
 		margin-top: 5px;
-		width: 90px;
 		float: right;
 		padding: 0px;
 		background-color: white;
@@ -152,8 +155,8 @@
 	
 	div#menu ul li#login a{	
 		color: black;
-		padding-right: 25px;
-		padding-left: 17px;
+		padding-right: 10px;
+		padding-left: 10px;
 		display: block;
 	}
 	
@@ -183,8 +186,8 @@
 		width: 100%;
 		background-color: black;
 		padding: 15px 0px 5px 0px;
-		position:absolute;
-   	bottom:0;
+		position: relative;
+		bottom: 0px;
 	}
 	div#footer p {
 		text-align: center;

@@ -1,0 +1,315 @@
+/* general styles */
+
+	* {
+  		font-family: Arial;
+	}
+	
+	a {
+  		color: #efefef;
+  		text-decoration: none;
+	}
+	
+/* wrapper */
+
+	div#wrapper {
+  		width: 1024px;
+  		margin: 0 auto;
+  		position: relative;
+	}
+	
+/* header */
+
+	div#headerWrapper {
+  		height: 81px;
+  		background: black;  		
+	}
+	
+	div#header {
+		width: 1024px;
+		height: 81px;
+		margin: 0 auto;
+		background: #000 url(../images/bg_header.png) repeat-y 0 0;
+	}
+	
+	
+/* logo */
+
+	h1 a {
+		background: transparent url(../images/logoSmall.png) no-repeat 0 0;
+		display: block;
+		width: 39px;
+		height: 49px;
+		overflow: hidden;
+		text-indent: -9999px;	
+		float: left;
+		margin-left: 20px;
+		margin-top: 15px;
+	}
+	
+	h2 {
+		float: left;
+		width: 800px;
+		margin-left: 50px;
+		text-align: center;
+		font-size: 55px;
+		color: #505050;
+		margin-top: 15px;
+		font-weight: normal;
+	}
+	
+/* register */
+
+	div#header p#exit {
+		width: 104px;
+		height: 26px;
+		line-height: 28px;
+		text-align: center;
+		background-image: url(../images/btn_exit.png);
+		border-top-right-radius: 4px;
+		border-top-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+		float: left;	
+		margin-top: 30px;
+	}
+	
+  div#header p#exit a {
+		color: #039;
+		font-size: 12px;
+		width: 104px;
+		height: 28px;
+		display: block;
+  	}
+  	
+  	div#header p#exit a:hover {
+  		border: 1px solid #022975;
+  		color: #02205d;
+  		border-top-right-radius: 4px;
+		border-top-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+		width: 100px;
+		height: 22px;
+		line-height: 24px;
+		margin-left: 1px;
+		margin-top: 1px;
+  	}
+  	
+/* content */
+  	
+  	div#content {
+		width: 984px;
+		padding: 10px 20px;
+		background: #fff;
+	}
+
+	div#content h3 {
+		font-family: verdana;		
+		font-size: 14px;
+		font-weight: normal;
+		color: #999;
+	}
+	
+/* templates */
+  	
+	div#templates {
+		width: 690px;
+		height: 130px;
+		padding: 10px 0px 10px 10px;
+		background-color: #e4e4e4;
+		border: 1px solid #cecece;
+		margin-top: 5px;
+	}
+	
+	div.slide {
+		width: 160px;
+		height: 110px;
+		padding-top: 5px;
+		background-color: #fff;
+		border: 1px solid #9d9d9d;
+		float: left;
+		margin-right: 10px;
+		text-align: center;
+		font-size: 15px;
+	}
+	
+	div.slide p.title {
+		margin-bottom: 4px;
+	}
+	
+	div#templates div.selected {
+		border: 1px solid #000;
+	} 
+	
+	div.slide:hover {
+		background-color: #ff9;
+	}
+	
+/* title template */
+	
+	div.title p.title {
+		margin-top: 15px;
+		font-size: 25px;
+	}
+	
+	div.title p.subtitle {
+		font-size: 14px;
+	}
+	
+/* text template */
+	
+	div.text p.sampleText {
+		text-align: left;
+		font-size: 11px;
+		margin-left: 5px;
+	}
+	
+/* template names */
+	
+	p.templateNames {
+		float: left;
+		font-size: 14px;
+		color: #999;
+		width: 160px;
+		text-align: center;
+		margin-right: 12px;
+		margin-top: 5px;
+	}
+	
+/* big slide */
+	
+	div#bigSlide {
+		width: 760px;
+		height: 475px;
+		background-color: #e4e4e4;
+		border: 1px solid #cecece;
+		float: left;
+		margin-top: 10px;
+		text-align: center;
+		margin-bottom: 10px;
+	}
+	
+	div#bigSlide p#bigTitle {
+		font-size: 65px;
+		color: #036;
+		margin-top: 155px;
+		margin-bottom: 25px;
+	}
+	
+	div#bigSlide p#bigSubtitle {
+		font-size: 28px;
+		color: #036;
+	}
+	
+/* form */
+	
+	form {
+		margin-left: 15px;
+		margin-top: 10px;
+		width: 180px;
+		height: 450px;
+		float: left;
+	}
+	
+	form fieldset legend {
+		font-size: 18px;
+		color: #999;
+	}
+	
+	form fieldset dl {
+		margin-left: 20px;
+	}
+	
+	form fieldset dl dt {
+		margin-top: 10px;
+		margin-bottom: 3px;
+		font-size: 12px;
+	}
+	
+	form fieldset dl dd input {
+		border: 1px solid #ccc;
+	}
+	
+/* buttons */
+	
+	p.add {
+		width: 104px;
+		height: 26px;
+		line-height: 28px;
+		text-align: center;
+		background-image: url(../images/btn_next.png);
+		border-top-right-radius: 4px;
+		border-top-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+		float: left;	
+		margin-left: 7px;
+	}
+	
+	p#delSlide {
+		background-image: url(../images/btn_delete.png);
+	}
+	
+ 	p.add a {
+		color: #060;
+		font-size: 12px;
+		width: 104px;
+		height: 28px;
+		display: block;
+  	}
+  	
+  	p#delSlide a {
+  		color: #530000;
+  	}
+  	
+  	p.add a:hover {
+  		border: 1px solid #003C00;
+  		color: #003C00;
+  		border-top-right-radius: 4px;
+		border-top-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+		width: 100px;
+		height: 22px;
+		line-height: 24px;
+		margin-left: 1px;
+		margin-top: 1px;
+  	}
+	
+  	p#delSlide a:hover {
+  		color: #3B0000;
+  		border-color: #3B0000;
+  	}
+	
+/* slides */
+
+	h3 {
+		clear: both;
+	}
+
+	div#slides {
+		width: 1024px;
+		height: 155px;
+		border: 1px solid #999;
+		background-color: #e4e4e4;
+		float: left;
+		margin-top: 10px;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		margin-bottom: 50px;
+		padding-left: 10px;
+	}
+	
+	div#slides div.slide {
+		margin-top: 10px;
+	}
+	
+	div#slides div#scroll {
+		width: 200%;
+	}
+	
+	
+  	
+  	
+  	
+  	

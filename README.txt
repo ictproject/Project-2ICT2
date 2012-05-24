@@ -1,8 +1,17 @@
-Ik vind het design beter zonder die footer zwart te maken, anyone agree?
+Todo
 
-oh, en als ge een betere play button vindt, go ahead 
-eerste 't beste van google gehaald maar past nog redelijk :p
+Thomas:
+	- register.php
+	- presentation.php
+	- links
+	
+Henri:
+	- groepen (alles)
+	- profiel
+	
+Maxim:
+	- audio stream
+	nodejs: http://martinsikora.com/nodejs-and-websocket-simple-chat-tutorial
+	
+	
 
----
-
-Ik vind het beter met een donkere footer. Anders kan je niet echt goed zien dat het effectief een footer is. 

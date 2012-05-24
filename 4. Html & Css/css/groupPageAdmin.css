@@ -1,0 +1,238 @@
+
+/* General information */
+	h4 {
+		float: left;
+		font-weight: normal;
+		font-size: 15px;
+		color: #999;
+		clear: both;		
+	}
+
+	p.edit {
+		height: 20px;
+		margin-bottom: 10px;
+	}
+	
+	p.edit a {
+		float: left;
+		background: url(../images/edit.png) no-repeat 0 0;
+		display: block;
+		text-indent: 9999px;
+		overflow: hidden;
+		width: 22px;
+		height: 20px;
+		margin-left: 5px;
+	}
+	 div#content p.edit {
+	 	margin-top: 10px;
+	 	
+	 }
+	 div#content p#admin {
+	 		float:left;
+	 }
+	 div#content p#admin a{
+	 	color:#000;
+	 	
+	 }
+	 div#content p#normalView a{
+	 	text-decoration: underline;
+	 	color: #000;
+	 	text-align: center;
+	 }
+	 input[type="submit"]#btnDeleteGroup  {
+	 	float:right;
+		background-image: url(../images/btn_delete.png);
+		width: 104px;
+		height: 26px;
+		border: none;
+		color: #060;
+		font-size: 12px;
+		line-height: 22px;
+		
+	}
+	input[type="submit"]#btnJoin  {
+		float:right;
+		background-image: url(../images/btn_next.png);
+		width: 104px;
+		height: 26px;
+		border: none;
+		color: #060;
+		font-size: 12px;
+		line-height: 22px;
+	}
+	
+	 input[type="submit"]:hover {
+		border: 1px solid #4e4f50;
+  		color: #050;
+  		
+  		border-top-right-radius: 4px;
+		border-top-left-radius: 6px;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+	}		
+
+/* Presentations */
+	div#presentations {
+		width: 908px;
+		height: 140px;
+		border: 1px solid #999;
+		background-color: #e4e4e4;
+		float: left;
+		margin-top: 10px;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+	
+	div#presentations div#scroll {
+		width: 200%;
+	}
+	
+	div#presentations div.presentation {
+		width: 160px;
+		height: 110px;
+		background-color: white;
+		float: left;
+		border: 1px solid #999;
+		margin-top: 10px;
+		margin-left: 12px;
+	}
+	
+	div#presentations div.presentation:hover {
+		background-color: #ff9;
+	}
+	
+	div#presentations div.presentation p.title {
+		text-align: center;
+		font-size: 14px;
+		color: #404040;
+		margin-top: 15px;
+	}
+	div#content div#presentations div.presentation p.buttons a {
+		float: right;
+		margin-right: 10px;
+		margin-top: 60px;
+		
+	}
+	
+	div#content div#presentations div.presentation p.buttons a.edit {
+		width: 14px;
+		height: 15px;
+		background: url(../images/pencil.png) no-repeat 0 0;
+      text-indent: -9999px;	
+      display: block;
+      overflow: hidden;
+	}
+	
+	div#content div#presentations div.presentation p.buttons a.settings {
+		width: 16px;
+		height: 16px;
+		background: url(../images/settings.png) no-repeat 0 0;
+      text-indent: -9999px;
+      display: block;
+      overflow: hidden;	
+	}
+	div#content div#presentations div.presentation p.buttons a.delete {
+		width: 22px;
+		height: 20px;
+		background: url(../images/delete.png) no-repeat 0 0;
+      text-indent: -9999px;
+      display: block;
+      overflow: hidden;	
+      
+	}	
+	/* 
+	*  Description 
+	*/
+	div#Description {
+		width: 450px;
+		float:left;
+	}
+	div#Description h4 {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	div#Description p.edit {
+		margin-top: 20px;
+	}
+	div#Description  p#descriptionText{
+		font-weight: bold;
+		line-height: 20px;
+		float:left;
+		
+	}
+	
+/* MEMBERS */
+	div#Members {
+		float: left;
+		position: relative;
+		margin-left: 25px;
+	}
+	
+	div#Members h4 {
+		position: absolute;
+		padding-top: 20px;
+		width: 200px;
+	}
+	div#Members  input[type="submit"] {
+		position: absolute;
+		margin-top: 15px;
+		margin-bottom: 20px;
+		margin-left: 100px;
+		background-image: url(../images/btn_next.png);
+		width: 104px;
+		height: 26px;
+		border: none;
+		color: #060;
+		font-size: 12px;
+		line-height: 22px;
+	}
+	
+	div#Members  input[type="submit"]:hover {
+		border: 1px solid #4e4f50;
+  		color: #050;
+  		border-top-right-radius: 4px;
+		border-top-left-radius: 6px;
+		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: 4px;
+	}	
+/* images members */
+	div#images {
+		position: absolute;
+		margin-top: 50px;
+		width: 435px;
+		height: auto;
+		background-color: #e4e4e4;
+		
+	}
+
+	div#images div#imgBox {
+		float: left;
+		width: 124px;
+		height: 151px;
+		text-align: center;
+		margin-top: 10px;
+		margin-bottom: 30px;
+		margin-left: 20px;
+		
+	}
+	div#images div#imgBox a.delete img {
+		
+		border: 1px solid #000;
+		position: relative;
+		z-index: 0;
+		display:block;
+		
+	}
+	div#images div#imgBox img {
+		border: 1px solid #000;
+	}
+	div#images div#imgBox  a.delete:hover span{
+		background: url(../images/delete.png) no-repeat;
+		z-index: 1;
+		position:absolute;
+    	width:22px;
+    	height:20px;
+		margin-top: -22px;
+		margin-left: 10px;
+	}
+	
