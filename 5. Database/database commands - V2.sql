@@ -35,8 +35,8 @@ CREATE  TABLE IF NOT EXISTS `openpresentations`.`presentations` (
   CONSTRAINT `fk_presentation_user`
     FOREIGN KEY (`owner` )
     REFERENCES `openpresentations`.`users` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -56,8 +56,8 @@ CREATE  TABLE IF NOT EXISTS `openpresentations`.`groups` (
   CONSTRAINT `fk_group_user1`
     FOREIGN KEY (`admin` )
     REFERENCES `openpresentations`.`users` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -75,13 +75,13 @@ CREATE  TABLE IF NOT EXISTS `openpresentations`.`users_has_groups` (
   CONSTRAINT `fk_user_has_group_user1`
     FOREIGN KEY (`user_id` )
     REFERENCES `openpresentations`.`users` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_user_has_group_group1`
     FOREIGN KEY (`group_id` )
     REFERENCES `openpresentations`.`groups` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -104,8 +104,8 @@ CREATE  TABLE IF NOT EXISTS `openpresentations`.`slides` (
   CONSTRAINT `fk_slide_presentation1`
     FOREIGN KEY (`presentation_id` )
     REFERENCES `openpresentations`.`presentations` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -123,11 +123,11 @@ CREATE  TABLE IF NOT EXISTS `openpresentations`.`groups_has_presentations` (
   CONSTRAINT `fk_group_has_presentation_group1`
     FOREIGN KEY (`group_id` )
     REFERENCES `openpresentations`.`groups` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_group_has_presentation_presentation1`
     FOREIGN KEY (`presentation_id` )
     REFERENCES `openpresentations`.`presentations` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;

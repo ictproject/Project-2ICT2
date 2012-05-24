@@ -36,7 +36,7 @@ $frmLogin = new SpoonForm('frmLogin');
 
 $frmLogin->addText('username');
 $frmLogin->addPassword('password');
-$frmLogin->addButton('submit', 'Submit');
+$frmLogin->addButton('login', 'Login');
 $frmLogin->addCheckbox('saveUser', false);
 
 if($frmLogin->isSubmitted()) {
@@ -52,15 +52,15 @@ if($frmLogin->isSubmitted()) {
     
     if($username != '' && $password != '') {
         
-        $username = @mysql_real_escape_string ( $username );
+        
 	$correct_password = $db->getRecord ( 'SELECT password FROM users WHERE username = ?', $username );
         
         if ($correct_password != null) {
-            
-            // if not from cookie -> md5 password
-            if (! $cookie) $password = (md5 ( $password ));
 
-            if ($password == md5($correct_password ['password'] )) {
+            // if not from cookie -> md5 password
+            if (! $cookie) $password =  md5(md5($password ). SALT);
+            
+            if ($password == md5($correct_password ['password'] . SALT)) {
                 
                     // correct
                     SpoonSession::start ();
@@ -69,7 +69,7 @@ if($frmLogin->isSubmitted()) {
                     if ($remember_me) {
                             
                             SpoonCookie::set ( 'username', $username );
-                            SpoonCookie::set ( 'password', md5($correct_password ['password'] ), 30 * 24 * 60 * 60 );
+                            SpoonCookie::set ( 'password', md5($correct_password['password'] . SALT), 30 * 24 * 60 * 60  );
                     }
                     header ( 'Location: index.php' );
             } else {

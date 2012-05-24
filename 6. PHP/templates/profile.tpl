@@ -1,44 +1,67 @@
 <h3>Profile</h3>
 
-			<h4>Presentations</h4>
+<h4>Presentations</h4>
+{option:oUserIsAdmin}
 
-			<p class="edit"><a href="#">Edit</a></p>
+{/option:oUserIsAdmin}
+{option:!oUserIsAdmin}
+    <p class="hidden"></p>
+{/option:!oUserIsAdmin}
+<div id="presentations">
+        <div id="scroll">
+            {iteration:iPresentations}
+                <div class="presentation" onclick="location.href='presentation.php?p={$iPresentations.id}';" style="cursor:pointer;">
+                        <p class="title">{$iPresentations.name}</p>
+                </div>
+            {/iteration:iPresentations}
+        </div>
+</div>
 
-			<div id="presentations">
-				<div id="scroll">
-                                    {iteration:iPresentations}
-					<div class="presentation">
-						<p class="title">{$iPresentations.name}</p>
-					</div>
-                                    {/iteration:iPresentations}
-				</div>
-			</div>
+<div id="general">
+        <h4>General Information</h4>
+        {option:oUserIsAdmin}
+            <p class="edit"><a href="#" onclick="toggle_visibility('editGeneral');">Edit</a></p>
+        {/option:oUserIsAdmin}
+        {option:!oUserIsAdmin}
+            <p class="hidden"></p>
+        {/option:!oUserIsAdmin}
+        <p><span>Name</span>{$fullName}</p>
+        <p><span>Email</span>{$email}</p>
+        <p><span>Member since</span>{$memberSince}</p>
+        <form action="#" method="post" id="editGeneral">
+            <p><span>Name</span><input type="text" name="txtName" value={$user.name} /></p>
+            <p><span>Firstname</span><input type="text" name="txtFirstName" value="{$user.firstname}" /></p>
+            <p><span>Email</span><input type="text" name="txtEmail" value="{$user.email}" /></p>
+            <input type="submit" value="Edit" />
+        </form>
+</div>
 
-			<div id="general">
-				<h4>General Information</h4>
+<div id="picture">
+        <h4>Picture</h4>
+        {option:oUserIsAdmin}
+            <p class="edit"><a href="#" onclick="toggle_visibility('editPicture');">Edit</a></p>
+        {/option:oUserIsAdmin}
+        {option:!oUserIsAdmin}
+            <p class="hidden"></p>
+        {/option:!oUserIsAdmin}
+        <form action="#" method="post" id="editPicture">
+            {$frmEditProfilePic}
+        </form>
 
-				<p class="edit"><a href="#">Edit</a></p>
+        <div id="imgBox">
+                <img src="{$imgSrc}"  alt="img"/>
+        </div>
+</div>
 
-				<p><span>Name</span>{$fullName}</p>
-				<p><span>Email</span>{$email}</p>
-				<p><span>Member since</span>{$memberSince}</p>
-			</div>
-
-			<div id="picture">
-				<h4>Picture</h4>
-
-				<p class="edit"><a href="#">Edit</a></p>
-
-				<div id="imgBox">
-					<img src="{$imgSrc}"  alt="img"/>
-				</div>
-			</div>
-
-			<div id="groups">
-				<h4>Groups</h4>
-
-				<p class="edit"><a href="groupsEdit.html">Edit</a></p>
-                                {iteration:iGroups}
-				<p class="group">{$iGroups.name}</p>
-                                {/iteration:iGroups}
-			</div>
+<div id="groups">
+        <h4>Groups</h4>
+        {option:oUserIsAdmin}
+            <p class="edit"><a href="editGroups.php">Edit</a></p>
+        {/option:oUserIsAdmin}
+        {option:!oUserIsAdmin}
+            <p class="hidden"></p>
+        {/option:!oUserIsAdmin}
+        {iteration:iGroups}
+        <p class="group"><a href="groupPageNormalUser.php?id={$iGroups.id}">{$iGroups.name}</a></p>
+        {/iteration:iGroups}
+</div>

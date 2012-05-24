@@ -1,0 +1,23 @@
+div#content h3{
+	display:block;
+	float: none;
+}
+
+div#content p{
+	padding: 10px 0;
+}
+
+div#content ul{
+	margin-left: 20px;
+	list-style-type: none;
+}
+
+div#content ul li{
+	margin: 10px 0;
+	background: url("../img/listStyle.png") no-repeat scroll left center transparent;
+	padding-left: 10px;
+}
+
+div#content ul li a{
+	color: #333;
+}

@@ -8,18 +8,6 @@ set_include_path ( get_include_path () . PATH_SEPARATOR . PATH_LIBRARY . PATH_SE
 require_once 'library/spoon/spoon.php';
 require_once 'core/includes/config.php';
 
-// Variables
-$logged_in = false;
-
-// start or continue session
-SpoonSession::start();
-
-// redirect if logged in
-$logged_in = SpoonSession::exists ( 'username' );
-if ($logged_in) {
-	header('Location: mypresentations.php');
-}
-
 
 // load template
 $Main = new SpoonTemplate ();

@@ -21,6 +21,11 @@ if ($loggedIn) {
 	$username = SpoonSession::get('username');
 }
 
+// Redirect to Home if not logged in
+if (!$loggedIn) {
+    header('Location: index.php');
+}
+
 // Database connection
 $db = new SpoonDatabase ( DB_DRIVER, DB_HOST, DB_USER, DB_PASS, DB_NAME );
 
@@ -67,7 +72,10 @@ if($frm->isSubmitted())
             $db->insert('presentations', $presentation);
             
             // get presentation id
-            $Pid = $db->getRecord('SELECT MAX(id) FROM presentations');
+            $Pid = $db->getVar('SELECT MAX(id) FROM presentations');
+            
+            // create folder for te presentation
+            mkdir('files/users/' . $username . '/presentations/' . $Pid . '.' . $presentation['name']);
             
             // redirecten naar slide editor
             header('Location: slideEditor.php?Pid=' . $Pid);
@@ -88,7 +96,9 @@ $Main->assign('pageCss',     '<link rel="stylesheet" type="text/css" media="scre
 // user
 $Main->assign('oLoggedIn', $loggedIn);
 $Main->assign('username', $username);
-
+if($user != null) {
+    $Main->assign('user', $user);
+}
 /*
  * Page Template
  */

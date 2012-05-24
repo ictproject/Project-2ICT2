@@ -65,7 +65,17 @@
 		height: 20px;
 		margin-left: 5px;
 	}
-	
+        p.hidden {
+                
+		
+		display: block;
+		
+		overflow: hidden;
+		width: 22px;
+		height: 20px;
+		margin-left: 5px;
+                
+        }
 	div#general p span {
 		width: 100px;
 		float: left;
@@ -76,7 +86,13 @@
 	div#general p {
 		margin-bottom: 10px;
 	}
-	
+        form input[type="submit"] {
+            	background-image: url(../images/btn_next.png);
+		width: 104px;
+		height: 26px;
+		border: none;
+		color: #060;
+        }
 /* Picture */
 	div#picture {
 		float: left;
@@ -102,11 +118,16 @@
 		float: left;
 		width: 210px;
 		margin-top: 30px;
+                margin-left: 50px;
 	}
 
 	div#groups p.group {
+                color: #000;
 		text-indent: 15px;
 		margin-left: 10px;
 		margin-bottom: 10px; 
 		background: url(../img/listStyle.png) no-repeat 0 0;
 	}
+        div#groups p.group a {
+            color: #000;
+        }

@@ -158,10 +158,12 @@
 	
 /* text template */
 	
-	div.text p.sampleText {
+	p.sampleText {
 		text-align: left;
 		font-size: 11px;
 		margin-left: 5px;
+                height: 90px;
+                overflow-y: hidden;
 	}
 	
 /* template names */
@@ -189,25 +191,43 @@
 		margin-bottom: 10px;
 	}
 	
-	div#bigSlide p#bigTitle {
+	div#bigSlide p#title.big {
 		font-size: 65px;
 		color: #036;
 		margin-top: 155px;
 		margin-bottom: 25px;
 	}
 	
-	div#bigSlide p#bigSubtitle {
+	div#bigSlide p#subtitle {
 		font-size: 28px;
 		color: #036;
 	}
+        
+        div#bigSlide p#title {
+            font-size: 28px;
+            color: #036;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        div#bigSlide p img {
+            max-height: 400px;
+            max-width: 500px;
+        }
+        
+        div#bigSlide video {
+            max-height: 400px;
+            max-width: 500px;
+        }
 	
 /* form */
 	
 	form {
 		margin-left: 15px;
 		margin-top: 10px;
+                margin-bottom: 40px;
 		width: 180px;
-		height: 450px;
+		height: auto;
 		float: left;
 	}
 	
@@ -229,6 +249,10 @@
 	form fieldset dl dd input {
 		border: 1px solid #ccc;
 	}
+        
+        form fieldset #contentText {
+            width: 350px;
+        }
 	
 /* buttons */
 	
@@ -287,29 +311,80 @@
 		clear: both;
 	}
 
-	div#slides {
+/*	div#scroll {
 		width: 1024px;
 		height: 155px;
 		border: 1px solid #999;
 		background-color: #e4e4e4;
 		float: left;
 		margin-top: 10px;
-		overflow-x: scroll;
-		overflow-y: hidden;
 		margin-bottom: 50px;
 		padding-left: 10px;
-	}
+	}*/
 	
-	div#slides div.slide {
+	div#scroll div.slide {
 		margin-top: 10px;
-	}
-	
-	div#slides div#scroll {
-		width: 200%;
-	}
-	
-	
+	}         			
   	
-  	
-  	
-  	
+div#scroll {
+    z-index: -1;
+    margin: 20px 0 10px;
+    width: 1024px;
+    border: 1px solid #999;
+    background-color: #e4e4e4;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    padding-left: 10px;
+    height: 155px;
+}
+div#scroll .viewport {
+    height: 140px;
+    overflow: hidden;
+    position: relative;
+    width: 1024px;
+}
+div#scroll .overview {
+    left: 0;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    height: 155px;
+    width: 2024px;
+}
+div#scroll .scrollbar {
+    background: url(../images/scrollbar/bg-scrollbar-track-x.png) no-repeat scroll 0 0 transparent;
+    clear: both;
+    height: 15px;
+    margin-left: -10px;
+    position: relative;
+    padding-left: 10px;
+}
+div#scroll .track {
+    background: url(../images/scrollbar/bg-scrollbar-trackend-x.png) no-repeat scroll 100% 0 transparent;
+    height: 15px;
+    position: relative;
+    width: 100%;
+    margin-left: -10px;
+    padding-left: 10px;
+}
+div#scroll .thumb {
+    background: url(../images/scrollbar/bg-scrollbar-thumb-x.png) no-repeat scroll 100% 50% transparent;
+    cursor: pointer;
+    height: 25px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: -5px;
+}
+div#scroll .thumb .end {
+    background: url(../images/scrollbar/bg-scrollbar-thumb-x.png) no-repeat scroll 0 50% transparent;
+    height: 25px;
+    overflow: hidden;
+    width: 5px;
+}
+div#scroll .disable {
+    display: none;
+}

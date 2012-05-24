@@ -38,7 +38,7 @@
 		<dl>
 			<dt>Upload a profile picture or use the default and do it later.</dt>
 			<dd id="imgBox">
-				<img src="./files/profile_pics/default.png" width="100" height="150" alt="img"/>
+				<img src="./files/users/default.png" width="100" height="150" alt="img"/>
 			</dd>
 			<dd>
 				{$fileProfilePic}{$fileProfilePicError}

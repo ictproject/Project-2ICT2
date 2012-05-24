@@ -453,13 +453,13 @@ that use the API provided by core.
 		
 		keys: {
 			// enter, space, page down, right arrow, down arrow,
-			next: [13, 32, 34, 39, 40],
+			next: [],
 			// backspace, page up, left arrow, up arrow
-			previous: [8, 33, 37, 38]
+			previous: []
 		},
 		
 		touch: {
-			swipeTolerance: 60
+			swipeTolerance: 0
 		}
 	};
 	

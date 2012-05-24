@@ -1,17 +1,42 @@
 Todo
 
-Thomas:
-	- register.php
-	- presentation.php
-	- links
+Templates php:  
+- Index (henri)
+- login (henri)
+- register (thomas)
+- my presentations (maxim)
+
+Html & css: Slide editor (maxim)
+
+
+login: 
+
+// Form handler
+if (SpoonFilter::getPostValue ( 'btnSubmit', null, '' ) == 'Login') {
 	
-Henri:
-	- groepen (alles)
-	- profiel
-	
-Maxim:
-	- audio stream
-	nodejs: http://martinsikora.com/nodejs-and-websocket-simple-chat-tutorial
-	
-	
+	if ($username != '' && $password != '') {
+		$correct_password = $db->getRecord ( 'SELECT password FROM user WHERE username = ?', $username );
+		if ($correct_password != null) {
+			// if not from cookie -> md5 password
+			if (! $cookie) $password = md5(md5 ( $password ) . SALT);
+			if ($password == md5($correct_password ['password'] . SALT)) {
+				// correct
+				SpoonSession::start ();
+ 				SpoonSession::set ( 'username', $username );
+				// remember cookie
+				if ($remember_me) {
+					SpoonCookie::set ( 'username', $username );
+					SpoonCookie::set ( 'password', md5($correct_password ['password'] . SALT), 30 * 24 * 60 * 60 );
+				}
+				header ( 'Location: adminHome.php' );
+			} else {
+				$form_errors [] = array ('message' => 'Paswoord is niet correct' );
+			}
+		} else {
+			$form_errors [] = array ('message' => 'Gebruikersnaam is niet correct' );
+		}
+	} else {
+		$form_errors [] = array ('message' => 'Niet alle velden zijn volledig ingevuld.' );
+	}
+}
 

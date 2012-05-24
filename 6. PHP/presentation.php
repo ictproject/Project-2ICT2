@@ -15,20 +15,36 @@ $presentationID = -1;
 $share = '';
 $owner = '';
 $slides = array();
+$sessionID = "";
+$username = "";
+$live = false;
 
 
 // start or continue session
 SpoonSession::start();
 
-// logged in
-$logged_in = SpoonSession::exists ( 'username' );
+// Live presentation?
+$presentationID = SpoonFilter::getGetValue('live',null,'');
+if ($presentationID != ''){
+   $live = true;
+}else{
+     // normal presentation
+    $presentationID = SpoonFilter::getGetValue('p',null,'');
+}
 
+// logged in
+// Username
+$loggedIn = SpoonSession::exists ( 'username' );
+if ($loggedIn) {
+	$username = SpoonSession::get('username');
+}
+
+$sessionID = SpoonSession::getSessionID();
 
 // Database connection
 $db = new SpoonDatabase ( DB_DRIVER, DB_HOST, DB_USER, DB_PASS, DB_NAME );
 
-// name presentation
-$presentationID = SpoonFilter::getGetValue('p',null,'');
+
 
 // check GET value
 if($presentationID == ''){
@@ -45,7 +61,27 @@ if($record){
 	header('Location: myPresentations.php');
 }
 
-// @todo check share options
+// owner id -> owner name
+$record = $db->getRecord('SELECT username FROM users WHERE id = ?', $owner);
+$owner = $record['username'];
+
+// share options
+if($share != 'public'){
+    if(!$loggedIn){
+        header('Location:index.php');
+    }
+}
+
+if($share == 'private'){
+    if($owner != $username){
+        header('Location:index.php');
+    }
+    $live = false; // live not necessary when private
+}
+
+if($share == 'group'){
+// @todo check if user in allowed group
+}
 
 
 // assign slides
@@ -67,7 +103,7 @@ foreach ($dbSlides as $tmpSlide){
 		case 'image':
 			$slide['imageSlide'] = true;
 			$slide['title'] = $tmpSlide['title'];
-			$slide['image'] = $tmpSlide['image'];
+			$slide['image'] = USERS_PATH . $username. '/presentations/images/' . $tmpSlide['image'];
 			break;
 		case 'video':
 			$slide['videoSlide'] = true;
@@ -93,6 +129,18 @@ $Main->setCompileDirectory ( 'templates/compiled' );
 $Main->assign('title', $presentationName);
 
 $Main->assign('iSlides', $slides);
+
+$Main->assign('sessionID', $sessionID);
+$Main->assign('presentationID', $presentationID);
+
+$Main->assign('nodeServer', NODESERVER);
+
+$Main->assign('oLive', $live);
+
+$Main->assign('oAdmin', $username == $owner);
+
+
+
 
 
 // show the output

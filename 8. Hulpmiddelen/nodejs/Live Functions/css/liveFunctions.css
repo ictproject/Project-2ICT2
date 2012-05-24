@@ -1,0 +1,100 @@
+/* main styles */
+
+body{
+	font-size: 12px;
+}
+
+nav{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 800px;
+	background-color: #333;
+	height: 30px;
+}
+
+nav ul{
+	margin: 0;
+	padding: 0;
+	margin-left: 10px;
+	height: 30px;
+}
+
+nav ul li{
+	display: block;
+	float: left;
+	padding-right: 10px;
+}
+
+nav ul li a{
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 5px;
+	color: #DDD;
+	text-decoration: none;
+}
+
+nav ul li a:hover{
+	background-color : #000;
+}
+
+section#chatbox { 
+	width:750px;
+	margin-top: 50px;
+	margin-left:auto; 
+	margin-right:auto;
+	overflow: hidden;
+   	position: relative;
+}
+
+section#chatbox section#content{
+	height: 250px;
+	width: 720px;
+ 	overflow: hidden;
+ 	overflow-y: scroll;
+ 	position: relative;
+ 	padding:5px; 
+	background:#ddd; 
+	border-radius:5px;
+   	border:1px solid #CCC; 
+   	margin-top:10px; 
+}
+
+section#chatbox span#status { 
+	width:88px; 
+	display:block; 
+	float:left; 
+	margin-top:15px; }
+
+section#chatbox input#input { 
+	border-radius:2px; 
+	border:1px solid #ccc;
+	margin-top:10px; 
+	padding:5px; 
+	width:400px; 
+	z-index: 50;
+}
+
+
+/* Clearfix */
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}

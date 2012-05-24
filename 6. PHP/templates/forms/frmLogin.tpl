@@ -13,7 +13,7 @@
                         {$chkSaveUser} <label for="saveUser">Save user</label>               
                     </dt>
                     <dt>
-                        {$btnSubmit}
+                        {$btnLogin}
                     </dt>
             </dl>
     </fieldset>

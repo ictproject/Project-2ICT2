@@ -1,7 +1,7 @@
 <?php error_reporting(E_ALL | E_STRICT); ini_set('display_errors', 'On'); ?>
 			<h3>My Presentations</h3>
 
-			<p id="add"><a href="#">Add Presentation</a></p>
+			<p id="add"><a href="createPresentation.php">Add Presentation</a></p>
 
 			<div id="presentations" class="clearfix">
 			<?php
@@ -31,11 +31,11 @@
 							${'iPresentations'}[$name .'Error'] = (is_callable(array($object, 'getErrors')) && $object->getErrors() != '') ? '<span class="formError">' . $object->getErrors() .'</span>' : '';
 						}
 					} ?>
-				<div class="presentation">
+				<div class="presentation" onclick="location.href='presentation.php?p=<?php if(array_key_exists('id', (array) ${'iPresentations'})) { echo ${'iPresentations'}['id']; } else { ?>{$iPresentations->id}<?php } ?>';" style="cursor:pointer;">
 					<h4><?php if(array_key_exists('name', (array) ${'iPresentations'})) { echo ${'iPresentations'}['name']; } else { ?>{$iPresentations->name}<?php } ?></h4>
 					<p class="buttons">
-						<a href="#" class="settings">settings</a>
-						<a href="#" class="edit">edit</a>
+						<a href="slideEditor.php?Pid=<?php if(array_key_exists('id', (array) ${'iPresentations'})) { echo ${'iPresentations'}['id']; } else { ?>{$iPresentations->id}<?php } ?>" class="settings">settings</a>
+						<a href="slideEditor.php?Pid=<?php if(array_key_exists('id', (array) ${'iPresentations'})) { echo ${'iPresentations'}['id']; } else { ?>{$iPresentations->id}<?php } ?>" class="edit">edit</a>
 					</p>
 				</div>
                             <?php

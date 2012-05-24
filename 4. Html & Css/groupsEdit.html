@@ -31,14 +31,26 @@
 		<div id="content">
 			<h3>Edit groups</h3>
 
-			<h4>My groups</h4>
 			<div id="groups">
-				<p class="group">2ICT2</p>
-				<p class="group">Redder Aan Zee</p>
+				<h4>My groups</h4>
+				<span>hidden</span>
+				<p class="group">2ICT2<a href="#" class="DeleteGroup"><img src="images\delete.png" alt="delete" /></a></p>
+				<p class="group">Redder Aan Zee<a href="#" class="DeleteGroup"><img src="images\delete.png" alt="delete" /></a></p>
 			</div>
-			<h4>Join a group</h4>
-			<input type="text" />
 			<div id="groups">
+				<div id="createGroup">
+					<h4 >Created groups</h4>
+					<p class="create"><a href="createGroup.php">Create</a></p>
+				</div>
+				<span>hidden</span>
+				<p class="group">2ICT2<a href="#" class="EditGroup"><img src="images\edit.png" alt="edit" /></a></p>
+				<p class="group">Redder Aan Zee<a href="#" class="EditGroup"><img src="images\edit.png" alt="edit" /></a></p>
+				<p class="group">Cisco: Switching & wireless<a href="#" class="EditGroup"><img src="images\edit.png" alt="edit" /></a></p>
+			</div>
+			<div id="groups">
+				<h4>Join a group</h4>
+				<input type=search results=5 name=search placeholder="Search ..." />
+				<span>hidden</span>
 				<p class="group">2ICT2</p>
 				<p class="group">Redder Aan Zee</p>
 			</div>

@@ -67,6 +67,21 @@ if($frm->isSubmitted())
             }
             $group['admin'] = $user['id'];
             $db->insert('groups', $group);
+            
+            //latest record id from groups --> to update users_has_groups table
+            $GroupID = $db->getRecord('SELECT * FROM groups WHERE ID = (SELECT MAX(id)  FROM groups)');
+            
+            //also add the admin to the user_has_group 
+            //group_id and user_id needed
+            $user_has_groups = array();
+            //$user_has_groups['group_id'] = ;
+            $user_has_groups['user_id'] = $user['id'];
+            $user_has_groups['group_id'] = $GroupID['id'];
+            
+            $db->insert('users_has_groups', $user_has_groups);
+            
+
+            header('Location:createGroupComplete.php');
 	}
 }
 
@@ -84,7 +99,9 @@ $Main->assign('pageCss',     '<link rel="stylesheet" type="text/css" media="scre
 // user
 $Main->assign('oLoggedIn', $loggedIn);
 $Main->assign('username', $username);
-
+if($user != null) {
+    $Main->assign('user', $user);
+}
 /*
  * Page Template
  */

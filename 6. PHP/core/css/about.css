@@ -7,7 +7,21 @@
 		line-height: 20px;
 		clear: both;
 	}
+        div#content ul {
+            float:left;
+            
+            clear:both;
+            margin-top: 20px;
+        }
+        div#content ul li {
+            background: url(../img/listStyle.png) no-repeat;
+            margin-top: 15px;
+            background-position: left;
+            padding-left: 20px;
+        }
+	
 
+	
 	
 
 	

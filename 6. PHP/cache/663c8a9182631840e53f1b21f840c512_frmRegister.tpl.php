@@ -47,7 +47,7 @@
 		<dl>
 			<dt>Upload a profile picture or use the default and do it later.</dt>
 			<dd id="imgBox">
-				<img src="./files/profile_pics/default.png" width="100" height="150" alt="img"/>
+				<img src="./files/users/default.png" width="100" height="150" alt="img"/>
 			</dd>
 			<dd>
 				<?php if(array_key_exists('fileProfilePic', (array) $this->variables)) { echo $this->variables['fileProfilePic']; } else { ?>{$fileProfilePic}<?php } ?><?php if(array_key_exists('fileProfilePicError', (array) $this->variables)) { echo $this->variables['fileProfilePicError']; } else { ?>{$fileProfilePicError}<?php } ?>

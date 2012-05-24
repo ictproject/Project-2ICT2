@@ -20,6 +20,10 @@ $logged_in = SpoonSession::exists ( 'username' );
 if ($logged_in) {
 	$username = SpoonSession::get('username');
 }
+// database connection
+$db = new SpoonDatabase ( DB_DRIVER, DB_HOST, DB_USER, DB_PASS, DB_NAME );
+// load user info
+$user = $db->getRecord('SELECT * FROM users WHERE username = ?', $username);
 
 // load template
 $Main = new SpoonTemplate ();
@@ -35,7 +39,9 @@ $Main->assign('pageCss',     '<link rel="stylesheet" type="text/css" media="scre
 // user
 $Main->assign('oLoggedIn', $logged_in);
 $Main->assign('username', $username);
-
+if($user != null) {
+    $Main->assign('user', $user);
+}
 /*
  * Page Template
  */

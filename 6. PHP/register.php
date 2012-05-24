@@ -94,22 +94,26 @@ if($frm->isSubmitted())
 		$record['username'] = $data['username'];
 		$record['firstname'] = $data['firstname'];
 		$record['name'] = $data['name'];
-		$record['password'] = md5($data['pass'] . SALT);
+		$record['password'] = md5($data['pass']);
 		$record['email'] = $data['email'];
 		$record['member_since'] = date("Y/m/d");
 		
+		// create user folder
+	    SpoonDirectory::create(USERS_PATH . $data['username']);
 		
 		// profile picture
 		if($image->isFilled('')){
 			$image_name = preg_replace('/[^a-z0-9 .]/i', '_', $image->getFileName());
 			
-			if($image->createThumbnail( PROFILE_PIC_PATH . $image_name, PROFILE_PIC_WIDTH, PROFILE_PIC_HEIGHT)){
+			if($image->createThumbnail( USERS_PATH . $data['username'] . '/' . $image_name, PROFILE_PIC_WIDTH, PROFILE_PIC_HEIGHT)){
 				$record['profile_picture'] = $image_name;
 			} else{
 				$image->addError('Profile picture could not be handled. Try again or contact Open Presentations staff');
 			}
 			
 		}else{
+		    $default_image = new SpoonThumbnail(USERS_PATH . 'default.png', PROFILE_PIC_WIDTH, PROFILE_PIC_HEIGHT);
+            $default_image->parseToFile(USERS_PATH . $data['username'] . '/default.png');
 			$record['profile_picture'] = 'default.png';
 		}
 		
@@ -117,6 +121,9 @@ if($frm->isSubmitted())
 		if($frm->isCorrect()){
 			// write to db
 			$db->insert('users', $record);
+            
+            // log in 
+            SpoonSession::set ( 'username', $data['username'] );
 			header('Location:registerComplete.php');
 		}
 	}

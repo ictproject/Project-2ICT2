@@ -117,8 +117,15 @@ div#menu {
 
 div#menu ul li {
     float:left;
-    margin-top: 10px;
+    
+ 	border-right: 1px solid #054b68;
+    padding-top: 7px;
+    margin-top: 3px;
+    padding-bottom: 7px;
+}
 
+div#menu ul li.last{
+    border:0;
 }
 
 div#menu ul li a {
@@ -136,14 +143,6 @@ div#menu ul li.selected {
     font-weight: bold;
 }
 
-div#menu ul li#middle {
-    border-left: 1px solid #054b68;
-    border-right: 1px solid #054b68;
-    margin-top: 3px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-}
-
 div#menu ul li#login {
     margin-top: 5px;
     float: right;
@@ -151,6 +150,7 @@ div#menu ul li#login {
     background-color: white;
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
+    border:0;
 }
 
 div#menu ul li#login a{	

@@ -25,8 +25,10 @@ if ($loggedIn) {
 // database connection
 $db = new SpoonDatabase ( DB_DRIVER, DB_HOST, DB_USER, DB_PASS, DB_NAME );
 
+// load user info
+$user = $db->getRecord('SELECT * FROM users WHERE username = ?', $username);
 // load presentation names
-$presentations = $db->getRecords('SELECT  p.name  FROM presentations AS p INNER JOIN users AS u ON p.owner = u.id WHERE u.username = ?', $username);
+$presentations = $db->getRecords('SELECT  p.name, p.id  FROM presentations AS p INNER JOIN users AS u ON p.owner = u.id WHERE u.username = ?', $username);
 
 // load template
 $Main = new SpoonTemplate ();
@@ -52,7 +54,10 @@ $Main->assign('pageCss',     '<link rel="stylesheet" type="text/css" media="scre
 // user
 $Main->assign('oLoggedIn', $loggedIn);
 $Main->assign('username', $username);
-
+//if user logged in assign profile.php?id={user.id}
+if($user != null) {
+    $Main->assign('user', $user);
+}
 /*
  * Page Template
  */
