@@ -65,13 +65,8 @@ if($record){
 $record = $db->getRecord('SELECT username FROM users WHERE id = ?', $owner);
 $owner = $record['username'];
 
-// share options
-if($share != 'public'){
-    if(!$loggedIn){
-        header('Location:index.php');
-    }
-}
 
+// share options
 if($share == 'private'){
     if($owner != $username){
         header('Location:index.php');
@@ -81,39 +76,70 @@ if($share == 'private'){
 
 if($share == 'group'){
 // @todo check if user in allowed group
+    $record = $db->getRecord('SELECT groups_id FROM presentations WHERE id = ?', $presentationID);
+    $groupID = $record['groups_id'];
+    
+    $record = $db->getRecord('SELECT share FROM groups WHERE id = ?', $groupID);
+    $groupShare = $record['share'];
+    
+    if($loggedIn){
+        $record = $db->getRecord('SELECT id FROM users WHERE username = ?', $username);
+        $userID = $record['id'];
+    }
+        
+    if( $groupShare == 'private'){ // private group
+        if(!$loggedIn){
+            header('Location:index.php');
+        }
+
+        $ingroup = $db->getNumRows('SELECT user_id FROM users_has_groups WHERE user_id = ? AND group_id = ?', array($userID , $groupID) );
+        if($ingroup == 0){
+            header('Location:index.php');
+        }
+    }
+    
+}
+
+if($share != 'public' && $groupShare != 'public'){
+    if(!$loggedIn){
+        header('Location:index.php');
+    }
 }
 
 
 // assign slides
 $dbSlides = $db->getRecords('SELECT * FROM slides WHERE presentation_id = ? ORDER BY nr', $presentationID);
-
-foreach ($dbSlides as $tmpSlide){
-	$slide = array();
-	switch($tmpSlide['template']){
-		case 'title':
-			$slide['titleSlide'] = true;
-			$slide['title'] = $tmpSlide['title'];
-			$slide['subtitle'] = $tmpSlide['content'];
-			break;
-		case 'content':
-			$slide['contentSlide'] = true;
-			$slide['title'] = $tmpSlide['title'];
-			$slide['content'] = $tmpSlide['content'];
-			break;
-		case 'image':
-			$slide['imageSlide'] = true;
-			$slide['title'] = $tmpSlide['title'];
-			$slide['image'] = USERS_PATH . $username. '/presentations/images/' . $tmpSlide['image'];
-			break;
-		case 'video':
-			$slide['videoSlide'] = true;
-			$slide['title'] = $tmpSlide['title'];
-			$slide['video'] = $tmpSlide['video'];
-			break;
-		default: 
-			die('error');
-	}
-	array_push($slides, $slide);
+if ($dbSlides != null){
+    foreach ($dbSlides as $tmpSlide){
+    	$slide = array();
+    	switch($tmpSlide['template']){
+    		case 'title':
+    			$slide['titleSlide'] = true;
+    			$slide['title'] = $tmpSlide['title'];
+    			$slide['subtitle'] = $tmpSlide['content'];
+    			break;
+    		case 'content':
+    			$slide['contentSlide'] = true;
+    			$slide['title'] = $tmpSlide['title'];
+    			$slide['content'] = $tmpSlide['content'];
+    			break;
+    		case 'image':
+    			$slide['imageSlide'] = true;
+    			$slide['title'] = $tmpSlide['title'];
+    			$slide['image'] = USERS_PATH . $username. '/presentations/images/' . $tmpSlide['image'];
+    			break;
+    		case 'video':
+    			$slide['videoSlide'] = true;
+    			$slide['title'] = $tmpSlide['title'];
+    			$slide['video'] = USERS_PATH . $username. '/presentations/videos/' . $tmpSlide['video'];
+    			break;
+    		default: 
+    			die('error');
+    	}
+    	array_push($slides, $slide);
+    }
+}else{
+    header('Location: myPresentations.php');
 }
 
 

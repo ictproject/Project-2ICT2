@@ -5,10 +5,11 @@
 			<div id="presentations" class="clearfix">
 			{option:oPresentations}
                             {iteration:iPresentations}
-				<div class="presentation" onclick="location.href='presentation.php?p={$iPresentations.id}';" style="cursor:pointer;">
+				<div class="presentation" onclick="window.open('presentation.php?p={$iPresentations.id}');" style="cursor:pointer;">
 					<h4>{$iPresentations.name}</h4>
 					<p class="buttons">
-						<a href="slideEditor.php?Pid={$iPresentations.id}" class="settings">settings</a>
+                                                <a href="myPresentations.php?DeletePresId={$iPresentations.id}" class="delete">delete</a>
+						<a href="createPresentationEdit.php?Pid={$iPresentations.id}" class="settings">settings</a>
 						<a href="slideEditor.php?Pid={$iPresentations.id}" class="edit">edit</a>
 					</p>
 				</div>

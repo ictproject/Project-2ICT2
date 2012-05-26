@@ -15,12 +15,12 @@
 <div id="presentations">
         <div id="scroll">
             {iteration:iPresentations}
-                <div class="presentation">
+                <div class="presentation" onclick="window.open('presentation.php?p={$iPresentations.id}');" style="cursor:pointer;">
                         <p class="title">{$iPresentations.name}</p>
                         <p class="buttons">
-                                <a href="#" class="delete">delete</a>
-                                <a href="#" class="settings">settings</a>
-                                <a href="#" class="edit">edit</a>
+                                <a href="groupPageAdmin.php?id={$Group.id}&DeletePresId={$iPresentations.id}" class="delete">delete</a>
+                                <a href="createPresentationEdit.php?Pid={$iPresentations.id}" class="settings">settings</a>
+                                <a href="slideEditor.php?Pid={$iPresentations.id}" class="edit">edit</a>
                         </p>
                 </div>
             {/iteration:iPresentations}    
@@ -47,8 +47,8 @@
         <a id="search" href="#" onclick="toggle_visibility('searchUsers'); toggle_visibility('images');">Invite</a>
 
         <form action="#" method="post" id="searchUsers">
-            <input type=search results=5 name=search placeholder="Search ..." />
-            <input type="submit" name="search" value="Search" >
+            <input type=search results=5 name='search' placeholder="Search ..." />
+            <input type="submit" name="searchButton" value="Search" >
             <div id="AllUsers">
                 <div id="scroll">
                     {iteration:iAllUsers}

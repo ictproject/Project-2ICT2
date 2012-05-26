@@ -42,7 +42,6 @@ $GroupParameters[1] = $user['id'];
 
 $Group = $db->getRecord('SELECT * FROM openpresentations.groups AS g  WHERE g.id = ? && g.admin= ?',$GroupParameters);
 $admin = $db->getRecord('SELECT u.id, u.username FROM openpresentations.users AS u INNER JOIN openpresentations.groups AS g ON u.id = g.admin WHERE g.admin= ?', $user['id']);
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! volgende query zou moeten verandert worden naar  where presentation.group_id = ? $GroupID
 $presentations = $db->getRecords('SELECT  p.name, p.id  FROM presentations AS p  WHERE groups_id = ?', $GroupID);
 $members = $db->getRecords('SELECT u.id, u.username, u.profile_picture FROM users AS u INNER JOIN users_has_groups as u_h_g ON u.id = u_h_g.user_id WHERE u_h_g.group_id = ?', $GroupID);
 $NumberOfMembers = $db->getVar('SELECT COUNT(*) AS count FROM users AS u INNER JOIN users_has_groups as u_h_g ON u.id = u_h_g.user_id WHERE u_h_g.group_id = ?', $GroupID);
@@ -61,6 +60,16 @@ if($deleteGroupID != null) {
 }
 else {
     $deleteGroupID = array();
+}
+//delete link is pushed
+$deletePresentationID = SpoonFilter::getGetValue('DeletePresId', null, '');
+if($deletePresentationID != null) {
+        if($db->delete('presentations', 'id = ?', $deletePresentationID) == 1) {
+            header('Location: groupPageAdmin.php?id='.$GroupID);
+        }
+}
+else {
+    $deletePresentationID = array();
 }
 /*
  * Delete member of group
@@ -120,8 +129,7 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
             header ( 'Location: groupPageAdmin.php?id='.$GroupID);
         }
     }
-    $AllUsers = $db->getRecords('SELECT * FROM users WHERE users.username like "%' .$_POST['search'] . '%" && id NOT IN (SELECT user_id From users_has_groups WHERE group_id = ?)', $GroupID);
-//
+
     //for each checkbox that is checked insert the user into users_has_groups
      if (isset($_POST['users'])){ 
         foreach ($_POST['users'] as $UserId) {
@@ -136,7 +144,13 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
             } 
         }
      }
-     header ( 'Location: groupPageAdmin.php?id='.$GroupID);
+     if (isset($_POST['searchButton'])) {
+         
+        $AllUsers = $db->getRecords('SELECT * FROM users WHERE users.username like "%' .$_POST['search'] . '%" && id NOT IN (SELECT user_id From users_has_groups WHERE group_id = ?)', $GroupID);
+        //var_dump($_POST['search']);
+    } else {
+        header ( 'Location: groupPageAdmin.php?id='.$GroupID);
+    }
 }
 else {
     $AllUsers = $db->getRecords('SELECT * FROM users WHERE id NOT IN (SELECT user_id From users_has_groups WHERE group_id = ?)', $GroupID);

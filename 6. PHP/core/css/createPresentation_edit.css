@@ -163,5 +163,8 @@
 		color: #404040;
 		margin-top: 15px;
 	}
+        div#content select#groups {
+            width: 100px;
+        }
 	
 	

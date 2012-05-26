@@ -19,7 +19,7 @@ $title = 'Title';
 $subtitle = 'Subtitle';
 $text = 'Example text';
 $img = 'core/images/noImage.png';
-$vid = 'core/video/jimi.webm';
+$vid = USERS_PATH . 'jimi.webm';
 $presentationDir = '';
 $showSlides = array();
 $deleted = false;
@@ -54,7 +54,7 @@ $presentation = $db->getRecord('SELECT * FROM presentations WHERE id = ?', $Pid)
 $slides = $db->getRecords('SELECT * FROM slides WHERE presentation_id = ?', $Pid);
 
 // set directory
-$presentationDir = 'files/users/'. $username . '/presentations/';
+$presentationDir = USERS_PATH . $username . '/presentations/videos/';
 
 // get selected template
 $template = SpoonFilter::getGetValue('template', null, '');
@@ -245,7 +245,7 @@ if ($nr != 0) {
                         $img = $s['image'];
                         break;
                 case 'video':
-                        $vid = $s['video'];
+                        $vid = $presentationDir . $s['video'];
                         break;
                 default: 
                         die('error');

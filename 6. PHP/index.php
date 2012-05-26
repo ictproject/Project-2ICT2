@@ -32,7 +32,9 @@ $Main->setForceCompile ( COMPILE_TEMPLATES );
 $Main->setCompileDirectory ( 'templates/compiled' );
 
 // meta & css
-$Main->assign('pageMeta', '');
+$Main->assign('pageMeta', @'<link rel="stylesheet" href="core/css/deck.js/horizontal-slide.css" type="text/css"> 
+                            <script src="core/js/deck.js/modernizr.custom.js"></script>');
+
 $Main->assign('pageCss',     '<link rel="stylesheet" type="text/css" media="screen" href="core/css/index.css" />');
 
 // user

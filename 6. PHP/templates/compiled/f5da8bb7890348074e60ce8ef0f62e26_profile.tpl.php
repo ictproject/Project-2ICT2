@@ -36,7 +36,7 @@
 							${'iPresentations'}[$name .'Error'] = (is_callable(array($object, 'getErrors')) && $object->getErrors() != '') ? '<span class="formError">' . $object->getErrors() .'</span>' : '';
 						}
 					} ?>
-                <div class="presentation" onclick="location.href='presentation.php?p=<?php if(array_key_exists('id', (array) ${'iPresentations'})) { echo ${'iPresentations'}['id']; } else { ?>{$iPresentations->id}<?php } ?>';" style="cursor:pointer;">
+                <div class="presentation" onclick="window.open('presentation.php?p=<?php if(array_key_exists('id', (array) ${'iPresentations'})) { echo ${'iPresentations'}['id']; } else { ?>{$iPresentations->id}<?php } ?>');" style="cursor:pointer;">
                         <p class="title"><?php if(array_key_exists('name', (array) ${'iPresentations'})) { echo ${'iPresentations'}['name']; } else { ?>{$iPresentations->name}<?php } ?></p>
                 </div>
             <?php

@@ -37,7 +37,7 @@ $Main->assign('username', $username);
 $Main->assign('presentationID', $presentationID);
 $Main->assign('nodeServer', NODESERVER);
 
-$Main->assign('oChatbox', oChat);
+$Main->assign('oChatbox', $oChat);
 
 
 // show the output

@@ -85,16 +85,25 @@
 		width: 14px;
 		height: 15px;
 		background: url(../img/pencil.png) no-repeat 0 0;
-      text-indent: -9999px;	
-      display: block;
-      overflow: hidden;
+                text-indent: -9999px;	
+                display: block;
+                overflow: hidden;
 	}
 	
 	div#content div#presentations div.presentation p.buttons a.settings {
 		width: 16px;
 		height: 16px;
 		background: url(../img/settings.png) no-repeat 0 0;
-      text-indent: -9999px;
-      display: block;
-      overflow: hidden;	
+                text-indent: -9999px;
+                display: block;
+                overflow: hidden;	
+	}
+	div#content div#presentations div.presentation p.buttons a.delete {
+		width: 22px;
+		height: 20px;
+		background: url(../images/delete.png) no-repeat 0 0;
+                text-indent: -9999px;
+                display: block;
+                overflow: hidden;	
+      
 	}

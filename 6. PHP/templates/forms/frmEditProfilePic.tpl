@@ -1,7 +1,8 @@
 {form:frmEditProfilePic}
             <dl>
                 <dd>
-                        {$fileProfilePic}{$fileProfilePicError}
+                        
+                        {$filePhoto} {$filePhotoError}
                 </dd>
             </dl>
 	{$btnSubmit}

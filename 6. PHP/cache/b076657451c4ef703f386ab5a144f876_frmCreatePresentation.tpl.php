@@ -19,6 +19,8 @@
 	
 					<dt id="options">Sharing Options</dt>
 					<dt id="checkPublic"><?php if(array_key_exists('chkPublic', (array) $this->variables)) { echo $this->variables['chkPublic']; } else { ?>{$chkPublic}<?php } ?><label for="public">Public Presentation</label><?php if(array_key_exists('chkPublicError', (array) $this->variables)) { echo $this->variables['chkPublicError']; } else { ?>{$chkPublicError}<?php } ?></dt>
+                                        
+                                        <?php if(array_key_exists('ddmGroups', (array) $this->variables)) { echo $this->variables['ddmGroups']; } else { ?>{$ddmGroups}<?php } ?> <?php if(array_key_exists('ddmGroupsError', (array) $this->variables)) { echo $this->variables['ddmGroupsError']; } else { ?>{$ddmGroupsError}<?php } ?>
 				</dl>
 </form>
 				<?php } ?>

@@ -29,7 +29,16 @@ $db = new SpoonDatabase ( DB_DRIVER, DB_HOST, DB_USER, DB_PASS, DB_NAME );
 $user = $db->getRecord('SELECT * FROM users WHERE username = ?', $username);
 // load presentation names
 $presentations = $db->getRecords('SELECT  p.name, p.id  FROM presentations AS p INNER JOIN users AS u ON p.owner = u.id WHERE u.username = ?', $username);
-
+//delete link is pushed
+$deletePresentationID = SpoonFilter::getGetValue('DeletePresId', null, '');
+if($deletePresentationID != null) {
+        if($db->delete('presentations', 'id = ?', $deletePresentationID) == 1) {
+            header('Location: myPresentations.php?');
+        }
+}
+else {
+    $deletePresentationID = array();
+}
 // load template
 $Main = new SpoonTemplate ();
 

@@ -51,8 +51,9 @@
 		border: none;
 		color: #000;
 		font-size: 12px;
-		line-height: 22px;
+		line-height: 26px;
 		font-size: 16px;
+                text-indent: 30px;
 	}
 	a#btnJoin  {
 		float:right;
@@ -62,8 +63,8 @@
 		border: none;
 		color: #000;
 		font-size: 16px;
-		line-height: 22px;
-                
+		line-height: 26px;
+                text-indent: 37px;
 	}
         a#btnLeave {
                 float:right;
@@ -73,8 +74,9 @@
 		border: none;
 		color: #000;
 		font-size: 12px;
-		line-height: 22px;
+		line-height: 26px;
                 font-size: 16px;
+                text-indent: 30px;
         }
 	 input[type="submit"]:hover {
 		border: 1px solid #4e4f50;
@@ -211,7 +213,8 @@
 		border: none;
 		color: #060;
 		font-size: 12px;
-		line-height: 22px;
+		line-height: 26px;
+                text-indent: 35px;
 	}
         div#Members form {
             position: relative;
@@ -280,5 +283,3 @@
 	div#images div#imgBox img {
 		border: 1px solid #000;
 	}
-
-	

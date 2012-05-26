@@ -10,5 +10,7 @@
 	
 					<dt id="options">Sharing Options</dt>
 					<dt id="checkPublic">{$chkPublic}<label for="public">Public Presentation</label>{$chkPublicError}</dt>
+                                        
+                                        {$ddmGroups} {$ddmGroupsError}
 				</dl>
 {/form:frmCreatePresentation}

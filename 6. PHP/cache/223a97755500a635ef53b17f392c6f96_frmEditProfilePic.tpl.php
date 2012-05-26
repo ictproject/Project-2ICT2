@@ -10,7 +10,8 @@
 						<?php } ?>
             <dl>
                 <dd>
-                        <?php if(array_key_exists('fileProfilePic', (array) $this->variables)) { echo $this->variables['fileProfilePic']; } else { ?>{$fileProfilePic}<?php } ?><?php if(array_key_exists('fileProfilePicError', (array) $this->variables)) { echo $this->variables['fileProfilePicError']; } else { ?>{$fileProfilePicError}<?php } ?>
+                        
+                        <?php if(array_key_exists('filePhoto', (array) $this->variables)) { echo $this->variables['filePhoto']; } else { ?>{$filePhoto}<?php } ?> <?php if(array_key_exists('filePhotoError', (array) $this->variables)) { echo $this->variables['filePhotoError']; } else { ?>{$filePhotoError}<?php } ?>
                 </dd>
             </dl>
 	<?php if(array_key_exists('btnSubmit', (array) $this->variables)) { echo $this->variables['btnSubmit']; } else { ?>{$btnSubmit}<?php } ?>

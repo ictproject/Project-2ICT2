@@ -28,7 +28,11 @@ if (!$loggedIn) {
 
 // Database connection
 $db = new SpoonDatabase ( DB_DRIVER, DB_HOST, DB_USER, DB_PASS, DB_NAME );
+// database connection
 
+
+//load only groups where the user is admin
+$createdGroups = $db->getPairs('SELECT g.id,g.name FROM openpresentations.groups AS g INNER JOIN openpresentations.users AS u ON g.admin = u.id WHERE u.username= ?',$username);
 // load user info
 $user = $db->getRecord('SELECT * FROM users WHERE username = ?', $username);
 
@@ -40,21 +44,25 @@ $frm->setParameter('class', 'clearfix');
 $frm->addText('name');
 $frm->addCheckbox('public', false);
 
+array_unshift($createdGroups,'' );
+
+$frm->addDropdown('Groups', $createdGroups);
+
 $frm->addButton('submit', 'next');
 
-
 // Form handler
-
 if($frm->isSubmitted())
 {
         // name is required
 	$frm->getField('name')->isFilled('Please fill out a name for the presentation');
+        // country is required
+        $frm->getField('Groups')->isFilled('Please select your country.');
         
         if($frm->isCorrect())
 	{
             // all the information that was submitted
             $data = $frm->getValues();
-
+            
             // insert data in the DB
             $presentation = array();
             $presentation['name'] = $data['name'];
@@ -69,6 +77,13 @@ if($frm->isSubmitted())
                 
             }
             $presentation['owner'] = $user['id'];
+            if($data['Groups'] != 0) {
+                $GroupName = $createdGroups[$data['Groups']];
+                $groupID = $db->getVar('SELECT id FROM groups WHERE name = ?', $GroupName);
+                $presentation['groups_id'] = $groupID;
+                
+            }
+            
             $db->insert('presentations', $presentation);
             
             // get presentation id

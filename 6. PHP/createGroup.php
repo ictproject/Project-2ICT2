@@ -94,7 +94,7 @@ $Main->setCompileDirectory ( 'templates/compiled' );
 
 // meta & css
 $Main->assign('pageMeta', '');
-$Main->assign('pageCss',     '<link rel="stylesheet" type="text/css" media="screen" href="core/css/createpresentation.css" />');
+$Main->assign('pageCss',     '<link rel="stylesheet" type="text/css" media="screen" href="core/css/createPresentation.css" />');
 
 // user
 $Main->assign('oLoggedIn', $loggedIn);

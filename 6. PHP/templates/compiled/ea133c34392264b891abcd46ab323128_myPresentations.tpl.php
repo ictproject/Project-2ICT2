@@ -31,10 +31,11 @@
 							${'iPresentations'}[$name .'Error'] = (is_callable(array($object, 'getErrors')) && $object->getErrors() != '') ? '<span class="formError">' . $object->getErrors() .'</span>' : '';
 						}
 					} ?>
-				<div class="presentation" onclick="location.href='presentation.php?p=<?php if(array_key_exists('id', (array) ${'iPresentations'})) { echo ${'iPresentations'}['id']; } else { ?>{$iPresentations->id}<?php } ?>';" style="cursor:pointer;">
+				<div class="presentation" onclick="window.open('presentation.php?p=<?php if(array_key_exists('id', (array) ${'iPresentations'})) { echo ${'iPresentations'}['id']; } else { ?>{$iPresentations->id}<?php } ?>');" style="cursor:pointer;">
 					<h4><?php if(array_key_exists('name', (array) ${'iPresentations'})) { echo ${'iPresentations'}['name']; } else { ?>{$iPresentations->name}<?php } ?></h4>
 					<p class="buttons">
-						<a href="slideEditor.php?Pid=<?php if(array_key_exists('id', (array) ${'iPresentations'})) { echo ${'iPresentations'}['id']; } else { ?>{$iPresentations->id}<?php } ?>" class="settings">settings</a>
+                                                <a href="myPresentations.php?DeletePresId=<?php if(array_key_exists('id', (array) ${'iPresentations'})) { echo ${'iPresentations'}['id']; } else { ?>{$iPresentations->id}<?php } ?>" class="delete">delete</a>
+						<a href="createPresentationEdit.php?Pid=<?php if(array_key_exists('id', (array) ${'iPresentations'})) { echo ${'iPresentations'}['id']; } else { ?>{$iPresentations->id}<?php } ?>" class="settings">settings</a>
 						<a href="slideEditor.php?Pid=<?php if(array_key_exists('id', (array) ${'iPresentations'})) { echo ${'iPresentations'}['id']; } else { ?>{$iPresentations->id}<?php } ?>" class="edit">edit</a>
 					</p>
 				</div>

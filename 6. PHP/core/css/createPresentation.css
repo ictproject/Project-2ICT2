@@ -61,6 +61,8 @@
 		line-height: 20px;
 	}
   
-	
+        div#content select#groups {
+            width: 100px;
+        }
 	
 	

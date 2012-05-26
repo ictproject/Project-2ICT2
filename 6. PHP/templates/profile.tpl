@@ -10,7 +10,7 @@
 <div id="presentations">
         <div id="scroll">
             {iteration:iPresentations}
-                <div class="presentation" onclick="location.href='presentation.php?p={$iPresentations.id}';" style="cursor:pointer;">
+                <div class="presentation" onclick="window.open('presentation.php?p={$iPresentations.id}');" style="cursor:pointer;">
                         <p class="title">{$iPresentations.name}</p>
                 </div>
             {/iteration:iPresentations}

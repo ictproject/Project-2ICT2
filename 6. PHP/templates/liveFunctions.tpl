@@ -8,7 +8,6 @@
 		<script>
 			var username = '{$username}';
 			var presentationID = '{$presentationID}';
-			var nodeServer = '{$nodeServer}';
 		</script>
 		
 		<script src="core/js/deck.js/jquery-1.7.min.js"></script>

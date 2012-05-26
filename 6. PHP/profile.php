@@ -34,8 +34,7 @@ $db = new SpoonDatabase ( DB_DRIVER, DB_HOST, DB_USER, DB_PASS, DB_NAME );
 
 
 
-// load presentation names
-$presentations = $db->getRecords('SELECT  p.name, p.id  FROM presentations AS p INNER JOIN users AS u ON p.owner = u.id WHERE u.id = ?', $UserID);
+
 
 // load user info
 $user = $db->getRecord('SELECT * FROM users WHERE id = ?', $UserID);
@@ -49,6 +48,12 @@ $userIsAdmin = false;
 if($userAdmin['id'] == $user['id']) {
     $userIsAdmin = true;
     
+}
+if($userIsAdmin == false) {
+    // load presentation names
+    $presentations = $db->getRecords('SELECT  p.name, p.id  FROM presentations AS p INNER JOIN users AS u ON p.owner = u.id WHERE share != "private" && u.id = ?', $UserID);
+}else {
+    $presentations = $db->getRecords('SELECT  p.name, p.id  FROM presentations AS p INNER JOIN users AS u ON p.owner = u.id WHERE  u.id = ?', $UserID);
 }
 
 
@@ -71,7 +76,7 @@ $txtEmail       = isset($_POST['txtEmail'])?$_POST['txtEmail']:"";
 // Form
 $frm = new SpoonForm('frmEditProfilePic');
 $frm->addButton('submit', 'Submit');
-$frm->addImage('profilePic');
+$frm->addImage('photo');
 
 if($frm->isSubmitted()) {
    	/*
@@ -79,9 +84,9 @@ if($frm->isSubmitted()) {
 	* - image is required
 	* - image needs to be a jpeg, png or gif
 	*/
-	$image = $frm->getField('profilePic'); // just to shorten the code 
-        	
-	if($image->isFilled(''))
+
+        //fileProfilePic	
+	/*if($image->isFilled(''))
 	{
 		// image has the jpg/png extension
 		$image->isAllowedExtension(array('jpg', 'png', 'gif'), 'Only jpg/gif are allowed.');
@@ -90,24 +95,25 @@ if($frm->isSubmitted()) {
 		if(!SpoonFilter::isMaximumCharacters(100, $image->getFileName())){
 			$image->addError('Image name is too long');
 		}
+                $fileName = $image->getFileName();
 		
-	}
+	}*/
+        $image = $frm->getField('photo'); //just to shorten the code
+        // check image extension
+        if($image->isAllowedExtension(array('jpg', 'png', 'gif'), 'Only jpg/gif/png are allowed.')) {
+            // image is not bigger than 5MB
+            if($image->isFilesize(5, 'mb', 'smaller', 'Too large. 5MB maximum')) {
+                // dimensions are minium 50x50
+                
+                // move file
+                $image->createThumbnail( USERS_PATH . $user['username'] . '/' . $image->getFileName(), PROFILE_PIC_WIDTH, PROFILE_PIC_HEIGHT);
+                $record['profile_picture'] = $image->getFileName();
+            }
+        }
         if($frm->isCorrect()){ 
             // profile picture
-            //var_dump($image);
-            if($image->isFilled('')){
-                    $image_name = preg_replace('/[^a-z0-9 .]/i', '_', $image->getFileName());
-                    //var_dump($image_name);
-                    if($image->createThumbnail( USERS_PATH . $user['username'] . '/' . $image_name, PROFILE_PIC_WIDTH, PROFILE_PIC_HEIGHT)){
-                            $record['profile_picture'] = $image_name;
-                            //var_dump($record);
-                    } else{
-                            $image->addError('Profile picture could not be handled. Try again or contact Open Presentations staff');
-                    }
-
-            }else{
-                    $record['profile_picture'] = 'default.png';
-                    var_dump($record);
+            if($record != null) {
+                $rows = $db->update('users', $record, 'id = ?', $user['id']);
             }
         }
 
@@ -130,7 +136,7 @@ if('POST' == $_SERVER['REQUEST_METHOD']) {
         $rows = $db->update('users', $record, 'id = ?', $user['id']);
         
         if(sizeof($rows)) {
-            //header ( 'Location: profile.php?id=' . $UserID);
+            header ( 'Location: profile.php?id=' . $UserID);
         }
     } 
 
